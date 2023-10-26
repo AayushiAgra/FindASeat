@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F9F9F9"
+    android:backgroundTint="#F9F9F9"
+    android:backgroundTintMode="add"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".LogIn">
+
+    <ImageView
+        android:id="@+id/backarrow"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="left"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp"
+        app:srcCompat="@drawable/back"
+        android:clickable="true"
+        android:onClick="toMainScreen"
+        />
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:fontFamily="@font/dmsans"
+        android:text="Log In" />
+    <TextView
+        android:id="@+id/idtext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="left"
+        android:layout_marginLeft="50dp"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/dmsans"
+        android:text="USC ID" />
+
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        style="@style/LoginTextInputLayoutStyle"
+        app:boxBackgroundColor="#f9f9f9"
+        android:id="@+id/uscid"
+        android:theme="@style/LoginTextInputLayoutStyle"
+
+
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="320dp"
+            android:layout_height="48dp"
+            android:fontFamily="@font/dmsans"
+            android:layout_gravity="center_horizontal"
+             />
+    </com.google.android.material.textfield.TextInputLayout>
+    <TextView
+        android:id="@+id/passtext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="left"
+        android:layout_marginLeft="50dp"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/dmsans"
+        android:text="Password" />
+
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:theme="@style/LoginTextInputLayoutStyle"
+        style="@style/LoginTextInputLayoutStyle"
+        app:boxBackgroundColor="#f9f9f9"
+        android:id="@+id/password"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="320dp"
+            android:layout_height="48dp"
+            android:fontFamily="@font/dmsans"
+            android:layout_gravity="center_horizontal"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/buttonLogIn"
+        style="@style/Button.Purple"
+        android:layout_width="267dp"
+        android:layout_height="48dp"
+        android:backgroundTint="#8A00C2"
+        android:text="Log In"
+        android:layout_marginTop="60dp"
+        app:cornerRadius="10dp" />
+    <LinearLayout
+        android:layout_marginTop="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="20dp">
+        <TextView
+            android:layout_width="253dp"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/dmsans"
+            android:text="Don't have an account?" />
+        <TextView
+
+            android:textColor="#8A00C2"
+            android:paddingLeft="10dp"
+            android:layout_width="205dp"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/dmsans"
+            android:text="Sign Up" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+
+        <ImageView
+            android:id="@+id/nav1"
+            android:layout_width="205dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/navbarprof1" />
+
+        <ImageView
+            android:id="@+id/nav2"
+            android:layout_width="205dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/navbar2" />
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    >
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="184dp"
+        android:layout_height="260dp"
+        android:layout_marginTop="70dp"
+        app:srcCompat="@drawable/seatlogo"
+        />
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="#8A00C2"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:fontFamily="@font/dmsans"
+        android:text="FindASeat" />
+
+    <Button
+        android:layout_marginTop="50dp"
+        android:id="@+id/buttonLogIn"
+        style="@style/Button.Purple"
+        android:layout_width="267dp"
+        android:onClick="toLoginScreen"
+        android:clickable="true"
+        android:layout_height="48dp"
+        android:backgroundTint="#8A00C2"
+        android:text="Log In"
+        app:cornerRadius="10dp" />
+
+    <Button
+        android:id="@+id/buttonSignUp"
+        style="@style/Button.Purple"
+        android:layout_width="267dp"
+        android:layout_height="48dp"
+
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#8A00C2"
+        android:text="Sign Up"
+        app:cornerRadius="10dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/nav1"
+            android:layout_width="205dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="110dp"
+            app:srcCompat="@drawable/navbarprof1"
+            />
+        <ImageView
+            android:id="@+id/nav2"
+            android:layout_width="205dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="110dp"
+            app:srcCompat="@drawable/navbar2"
+            />
+    </LinearLayout>
+
+
+</LinearLayout>
