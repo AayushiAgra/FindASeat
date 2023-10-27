@@ -22,27 +22,54 @@
         android:clickable="true"
         android:onClick="toMainScreen"
         />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="-25dp"
         android:gravity="center"
         android:textSize="30dp"
+        android:layout_marginRight="5dp"
         android:textStyle="bold"
         android:fontFamily="@font/dmsans"
-        android:text="Log In" />
+        android:text="Sign Up" />
+    <ImageView
+        android:id="@+id/profpic"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="15dp"
+        app:srcCompat="@drawable/profpic"
+        android:clickable="true"
+        android:onClick="toMainScreen"
+        />
     <TextView
-        android:id="@+id/idtext"
+        android:id="@+id/proftext"
+        android:layout_width="113dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="14sp"
+        android:textColor="#8A00C2"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/dmsans"
+        android:text="Add Profile Photo" />
+    <View
+        android:layout_width="113dp"
+        android:layout_height="1dp"
+        android:id="@+id/separator"
+        android:visibility="visible"
+        android:background="#8A00C2"/>
+    <TextView
+        android:id="@+id/nametext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="5dp"
         android:layout_gravity="left"
         android:layout_marginLeft="50dp"
         android:textSize="14sp"
         android:textStyle="bold"
         android:fontFamily="@font/dmsans"
-        android:text="USC ID" />
+        android:text="Name" />
 
 
 
@@ -52,7 +79,7 @@
         android:layout_height="70dp"
         style="@style/LoginTextInputLayoutStyle"
         app:boxBackgroundColor="#f9f9f9"
-        android:id="@+id/uscid"
+        android:id="@+id/name"
         android:theme="@style/LoginTextInputLayoutStyle"
 
 
@@ -66,10 +93,72 @@
              />
     </com.google.android.material.textfield.TextInputLayout>
     <TextView
+        android:id="@+id/idtext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-10dp"
+        android:layout_gravity="left"
+        android:layout_marginLeft="50dp"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/dmsans"
+        android:text="USC ID" />
+
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:theme="@style/LoginTextInputLayoutStyle"
+        style="@style/LoginTextInputLayoutStyle"
+        app:boxBackgroundColor="#f9f9f9"
+        android:id="@+id/uscid"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="320dp"
+            android:layout_height="48dp"
+            android:fontFamily="@font/dmsans"
+            android:layout_gravity="center_horizontal"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+    <TextView
+        android:id="@+id/affiliationtxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-10dp"
+        android:layout_gravity="left"
+        android:layout_marginLeft="50dp"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/dmsans"
+        android:text="USC Affiliation" />
+
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:theme="@style/LoginTextInputLayoutStyle"
+        style="@style/LoginTextInputLayoutStyle"
+        app:boxBackgroundColor="#f9f9f9"
+        android:id="@+id/affiliation"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="320dp"
+            android:layout_height="48dp"
+            android:fontFamily="@font/dmsans"
+            android:layout_gravity="center_horizontal"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+    <TextView
         android:id="@+id/passtext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="-10dp"
         android:layout_gravity="left"
         android:layout_marginLeft="50dp"
         android:textSize="14sp"
@@ -103,13 +192,13 @@
         android:layout_width="267dp"
         android:layout_height="48dp"
         android:backgroundTint="#8A00C2"
-        android:text="Log In"
+        android:text="Sign Up"
         android:textStyle="bold"
         android:fontFamily="@font/dmsans"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="10dp"
         app:cornerRadius="10dp" />
     <LinearLayout
-        android:layout_marginTop="110dp"
+        android:layout_marginTop="25dp"
         android:layout_width="match_parent"
         android:layout_height="20dp">
         <TextView

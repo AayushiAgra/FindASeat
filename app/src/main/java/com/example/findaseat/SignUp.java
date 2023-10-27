@@ -1,13 +1,12 @@
 package com.example.findaseat;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class MainActivity extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
 
+public class SignUp  extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         getWindow().getDecorView().setSystemUiVisibility(
@@ -18,14 +17,10 @@ public class MainActivity extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_FULLSCREEN
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.signup);
     }
-    public void toLoginScreen(View view) {
-        Intent intent = new Intent(this, LogIn.class);
-        startActivity(intent);
-    }
-    public void toSignUpScreen(View view) {
-        Intent intent = new Intent(this, SignUp.class);
+    public void toMainScreen(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 }
