@@ -87,7 +87,6 @@ public class SignUp  extends AppCompatActivity {
         else{
             namel.setBoxStrokeColorStateList(AppCompatResources.getColorStateList(this, R.color.mtrl_textinput_default_box_stroke_color));
         }
-        //TODO: check whether ID has been taken
         if (studentid.matches("\\d+") && studentid.length() == 10){
 
             uscid.setBoxStrokeColorStateList(AppCompatResources.getColorStateList(this, R.color.mtrl_textinput_default_box_stroke_color));

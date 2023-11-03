@@ -93,7 +93,6 @@ public class Profile extends AppCompatActivity {
 
         //temp values for the variables below
 
-        //TODO: assign image to whatever nonsense i got from backend
         String[] currentreservation = {"Taper Hall", "Upcoming", "10/24/2024", "12:00-14:00 PST"};
         String[][] pastreservations = {{"Doheny Library", "Completed", "10/26/2024", "12:00-14:00 PST"}, {"Doheny Library", "Completed", "10/26/2024", "12:00-14:00 PST"}, {"Doheny Library", "Completed", "10/26/2024", "12:00-14:00 PST"}};
 
