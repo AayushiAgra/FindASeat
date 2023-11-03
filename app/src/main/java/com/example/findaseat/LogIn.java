@@ -51,7 +51,7 @@ public class LogIn  extends AppCompatActivity {
         String pass = (passl.getEditText()).getText().toString();
         boolean isvalid = true;
         int SDK_INT = android.os.Build.VERSION.SDK_INT;
-        if (SDK_INT > 8)
+        if (SDK_INT > 9)
         {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
                     .permitAll().build();
@@ -62,7 +62,7 @@ public class LogIn  extends AppCompatActivity {
         try { //https://www.baeldung.com/java-http-request
 
 
-            URL url = new URL("http://172.20.10.6:8080/loginUser?documentId=" + studentid + "&pass=" + pass);
+            URL url = new URL("http://172.20.10.2:8080/loginUser?documentId=" + studentid + "&pass=" + pass);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("GET");
 

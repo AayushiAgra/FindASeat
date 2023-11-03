@@ -139,7 +139,7 @@ public class SignUp  extends AppCompatActivity {
 
 
             int SDK_INT = android.os.Build.VERSION.SDK_INT;
-            if (SDK_INT > 8)
+            if (SDK_INT > 9)
             {
                 StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
                         .permitAll().build();
@@ -150,7 +150,7 @@ public class SignUp  extends AppCompatActivity {
             try { //https://www.baeldung.com/java-http-request
 
 
-                URL url = new URL("http://172.20.10.6:8080/createUser");
+                URL url = new URL("http://172.20.10.2:8080/createUser");
                 HttpURLConnection con = (HttpURLConnection) url.openConnection();
                 con.setRequestMethod("POST");
                 con.setRequestProperty("Accept", "application/json");

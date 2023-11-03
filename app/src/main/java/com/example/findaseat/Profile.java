@@ -22,6 +22,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Objects;
 
@@ -44,7 +45,7 @@ public class Profile extends AppCompatActivity {
         String name = "Anna Smith";
         String affiliation = "STUDENT";
         int SDK_INT = android.os.Build.VERSION.SDK_INT;
-        if (SDK_INT > 8)
+        if (SDK_INT > 9)
         {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
                     .permitAll().build();
@@ -55,7 +56,31 @@ public class Profile extends AppCompatActivity {
         try { //https://www.baeldung.com/java-http-request
 
 
-            URL url = new URL("http://172.20.10.6:8080/getUser?documentId=" + uscid);
+            URL url = new URL("http://172.20.10.2:8080/refreshReservations");
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            con.setRequestMethod("PUT");
+            int status = con.getResponseCode();
+            BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+            String inputLine;
+            StringBuffer content = new StringBuffer();
+            while ((inputLine = in.readLine()) != null) {
+                content.append(inputLine);
+            }
+            in.close();
+
+            con.disconnect();
+
+
+
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        try { //https://www.baeldung.com/java-http-request
+
+
+            URL url = new URL("http://172.20.10.2:8080/getUser?documentId=" + uscid);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("GET");
 
@@ -99,7 +124,7 @@ public class Profile extends AppCompatActivity {
         try { //https://www.baeldung.com/java-http-request
 
 
-            URL url = new URL("http://172.20.10.6:8080/getPastReservations?documentId=" + uscid);
+            URL url = new URL("http://172.20.10.2:8080/getPastReservations?documentId=" + uscid);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("GET");
 
@@ -120,19 +145,52 @@ public class Profile extends AppCompatActivity {
                 pastreservations[i][0] = (String) yourHashMapArray[i].get("buildingName");
                 boolean a = (boolean) yourHashMapArray[i].get("canceled");
                 if (a){
-                    pastreservations[i][1] = "canceled";
+                    pastreservations[i][1] = "Canceled";
                 }
                 else{
-                    pastreservations[i][1] = "completed";
+                    pastreservations[i][1] = "Completed";
                 }
                 pastreservations[i][2] = yourHashMapArray[i].get("date").toString();
-                pastreservations[i][3] = (String) yourHashMapArray[i].get("timeBlocks").toString();
-                a = (boolean) yourHashMapArray[i].get("indoor");
-                if (a){
-                    pastreservations[i][4] = "indoor";
+                ArrayList<String> temp = (ArrayList<String>) yourHashMapArray[i].get("timeBlocks");
+                String min = "24:00:00";
+                String max = "00:00:00";
+                for (int j = 0; j < temp.size(); j++){
+                    String parsed = temp.get(j).substring(2);
+                    if (parsed.compareTo(min) < 0){
+                        min = parsed;
+                    }
+                    if (parsed.compareTo(max) > 0){
+                        max = parsed;
+                    }
+                }
+                String add = min;
+                add += " - ";
+                if (max.charAt(3) == '3'){
+                    if (max.charAt(1) == '9'){
+                        char x = (char)(max.charAt(0) + 1);
+                        max = x + "0:0"+ max.substring(4);
+                        System.out.println("1");
+                    }
+                    else{
+                        char x = (char)(max.charAt(1) + 1);
+
+                        String t = max.charAt(0)+ ""+ x + ":0" + max.substring(4);
+                        max = t;
+
+                    }
                 }
                 else{
-                    pastreservations[i][4] = "outdoor";
+                    max = max.charAt(0)+ "" + max.charAt(1) + "" + max.charAt(2) + "3" + max.substring(4);
+                }
+                add += max;
+                pastreservations[i][3] = add;
+
+                a = (boolean) yourHashMapArray[i].get("indoor");
+                if (a){
+                    pastreservations[i][4] = "Indoor";
+                }
+                else{
+                    pastreservations[i][4] = "Outdoor";
                 }
 
             }
@@ -145,7 +203,7 @@ public class Profile extends AppCompatActivity {
         try { //https://www.baeldung.com/java-http-request
 
 
-            URL url = new URL("http://172.20.10.6:8080/getCurrentReservation?documentId=" + uscid);
+            URL url = new URL("http://172.20.10.2:8080/getCurrentReservation?documentId=" + uscid);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("GET");
             int status = con.getResponseCode();
@@ -169,19 +227,51 @@ public class Profile extends AppCompatActivity {
                     currentreservation[0] = (String) yourHashMapArray.get("buildingName");
                     boolean a = (boolean) yourHashMapArray.get("canceled");
                     if (a){
-                        currentreservation[1] = "canceled";
+                        currentreservation[1] = "Canceled";
                     }
                     else{
-                        currentreservation[1] = "completed";
+                        currentreservation[1] = "Completed";
                     }
                 currentreservation[2] = yourHashMapArray.get("date").toString();
-                currentreservation[3] = (String) yourHashMapArray.get("timeBlocks").toString();
-                    a = (boolean) yourHashMapArray.get("indoor");
-                    if (a){
-                        currentreservation[4] = "indoor";
+                ArrayList<String> temp = (ArrayList<String>) yourHashMapArray.get("timeBlocks");
+                String min = "24:00:00";
+                String max = "00:00:00";
+                for (int i = 0; i < temp.size(); i++){
+                    String parsed = temp.get(i).substring(2);
+                    if (parsed.compareTo(min) < 0){
+                        min = parsed;
+                    }
+                    if (parsed.compareTo(max) > 0){
+                        max = parsed;
+                    }
+                }
+                String add = min;
+                add += " - ";
+                if (max.charAt(3) == '3'){
+                    if (max.charAt(1) == '9'){
+                        char x = (char)(max.charAt(0) + 1);
+                        max = x + "0:0"+ max.substring(4);
+                        System.out.println("1");
                     }
                     else{
-                        currentreservation[4] = "outdoor";
+                        char x = (char)(max.charAt(1) + 1);
+
+                        String t = max.charAt(0)+ ""+ x + ":0" + max.substring(4);
+                        max = t;
+
+                    }
+                }
+                else{
+                    max = max.charAt(0)+ "" + max.charAt(1) + "" + max.charAt(2) + "3" + max.substring(4);
+                }
+                add += max;
+                currentreservation[3] = add;
+                    a = (boolean) yourHashMapArray.get("indoor");
+                    if (a){
+                        currentreservation[4] = "Indoor";
+                    }
+                    else{
+                        currentreservation[4] = "Outdoor";
                     }
 
 
@@ -330,7 +420,7 @@ public class Profile extends AppCompatActivity {
             TextView location = findViewById(R.id.pastlocation7);
             location.setText("Location: " + pastreservations[7][4]);
         }
-        if (pastreservations.length > 8){
+        if (pastreservations.length > 9){
             androidx.cardview.widget.CardView x = findViewById(R.id.pastbox8);
             x.setVisibility(View.VISIBLE);
             TextView buildingname = findViewById(R.id.pastname8);
@@ -550,7 +640,7 @@ public class Profile extends AppCompatActivity {
         try { //https://www.baeldung.com/java-http-request
 
 
-            URL url = new URL("http://172.20.10.6:8080/cancelReservation?documentId=" + uscid);
+            URL url = new URL("http://172.20.10.2:8080/cancelReservation?documentId=" + uscid);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("PUT");
             int status = con.getResponseCode();
