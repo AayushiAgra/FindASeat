@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".GuestProfile"
     android:orientation="vertical"
     android:gravity="center_horizontal"
     >
@@ -65,6 +65,7 @@
             android:layout_height="100dp"
             android:layout_marginTop="110dp"
             app:srcCompat="@drawable/navbarprof1"
+            android:onClick="toMapScreen"
             />
         <ImageView
             android:id="@+id/nav2"

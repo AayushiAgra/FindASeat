@@ -96,6 +96,18 @@
             android:layout_gravity="center_horizontal"
             />
     </com.google.android.material.textfield.TextInputLayout>
+    <TextView
+        android:id="@+id/errorText"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:textColor="#990000"
+        android:textStyle="bold"
+        android:fontFamily="@font/dmsans"
+        android:visibility="invisible"
+        android:text="No account found for the ID and password provided. Please retype your username and password or sign up." />
 
     <Button
         android:id="@+id/buttonLogIn"
@@ -106,10 +118,11 @@
         android:text="Log In"
         android:textStyle="bold"
         android:fontFamily="@font/dmsans"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="10dp"
+        android:onClick="logInSubmit"
         app:cornerRadius="10dp" />
     <LinearLayout
-        android:layout_marginTop="110dp"
+        android:layout_marginTop="80dp"
         android:layout_width="match_parent"
         android:layout_height="20dp">
         <TextView
@@ -130,6 +143,8 @@
             android:textSize="14sp"
             android:textStyle="bold"
             android:fontFamily="@font/dmsans"
+            android:clickable="true"
+            android:onClick="toSignUpScreen"
             android:text="Sign Up" />
 
     </LinearLayout>
@@ -141,7 +156,8 @@
             android:id="@+id/nav1"
             android:layout_width="205dp"
             android:layout_height="100dp"
-            app:srcCompat="@drawable/navbarprof1" />
+            app:srcCompat="@drawable/navbarprof1"
+            android:onClick="toMapScreen"/>
 
         <ImageView
             android:id="@+id/nav2"

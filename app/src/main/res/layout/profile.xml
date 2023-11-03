@@ -53,7 +53,7 @@
             android:layout_gravity="left"
             android:textSize="18sp"
             android:layout_marginTop="110dp"
-            android:layout_marginLeft="110dp"
+            android:layout_marginLeft="105dp"
             android:textStyle="bold"
             android:text="AAYUSHI AGRAWAL" />
         <LinearLayout
@@ -65,19 +65,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 android:textStyle="bold"
-                android:layout_marginLeft="110dp"
+                android:layout_marginLeft="105dp"
                 android:text="3162222359" />
             <TextView
                 android:id="@+id/studentaffil"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 android:textStyle="bold"
-                android:layout_marginLeft="10dp"
-                android:text="STUDENT" />
+                android:layout_marginLeft="7dp"
+                android:text="GRADUATE STUDENT" />
         </LinearLayout>
         <ImageView
             android:background="@color/white"
@@ -93,7 +93,7 @@
     <ScrollView
         android:layout_marginTop="30dp"
         android:layout_width="match_parent"
-        android:layout_height="290dp">
+        android:layout_height="310dp">
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
@@ -124,23 +124,34 @@
                         android:fontFamily="@font/dmsans">
                     </TextView>
                     <ImageView
+                        android:onClick="currResOuterToggle"
+                        android:clickable="true"
+                        android:id="@+id/currresoutertoggle"
                         android:layout_width="14dp"
                         android:layout_height="15dp"
                         android:layout_marginLeft="200dp"
-                        app:srcCompat="@drawable/uparrow"
+                        app:srcCompat="@drawable/downarrow"
                         />
 
                 </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/togglecurritems"
+                    android:visibility="gone"
+                    android:orientation="vertical">
                 <androidx.cardview.widget.CardView
+                    android:visibility="visible"
                     android:layout_width="match_parent"
-
+                    android:id = "@+id/currentreservationbox"
                     app:cardUseCompatPadding="true"
                     app:cardElevation="10dp"
                     app:cardCornerRadius="9dp"
                     android:layout_height="wrap_content">
                     <LinearLayout
-                        android:id = "@+id/currentreservationbox"
+
                         android:layout_width="match_parent"
+
                         android:padding="10dp"
                         android:layout_height="wrap_content">
                         <ImageView
@@ -148,16 +159,19 @@
                             android:layout_width="14dp"
                             android:layout_height="15dp"
                             android:layout_marginLeft="10dp"
-                            app:srcCompat="@drawable/uparrow"
+                            app:srcCompat="@drawable/downarrow"
+                            android:clickable="true"
+                            android:onClick="currResToggle"
                             />
 
 
                         <LinearLayout
-                            android:layout_width="wrap_content"
+                            android:layout_width="295dp"
                             android:layout_height="wrap_content"
                             android:paddingLeft="15dp"
                             android:orientation="vertical">
                             <TextView
+                                android:id="@+id/CurrResName"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Taper Hall"
@@ -171,6 +185,8 @@
                             <LinearLayout
                                 android:layout_width="280dp"
                                 android:orientation="vertical"
+                                android:id="@+id/currresinfo"
+                                android:visibility="gone"
                                 android:layout_height="wrap_content">
                                 <TextView
                                     android:layout_marginTop="5dp"
@@ -178,6 +194,7 @@
                                     android:layout_height="wrap_content"
                                     android:text="Status: Upcoming"
                                     android:textStyle="bold"
+                                    android:id="@+id/currresstatus"
                                     android:gravity="left"
                                     android:textSize="12dp"
                                     android:textColor="#737373"
@@ -187,6 +204,17 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Date: 10/26/2024"
+                                    android:id="@+id/currresdate"
+                                    android:textStyle="bold"
+                                    android:gravity="left"
+                                    android:textSize="12dp"
+                                    android:textColor="#737373"
+                                    android:fontFamily="@font/dmsans"/>
+                                <TextView
+                                    android:id="@+id/currrestime"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Time: 12:00 - 14:00 PST"
                                     android:textStyle="bold"
                                     android:gravity="left"
                                     android:textSize="12dp"
@@ -194,6 +222,7 @@
                                     android:fontFamily="@font/dmsans"/>
                                 <TextView
                                     android:layout_marginBottom="5dp"
+                                    android:id="@+id/currreslocation"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Time: 12:00 - 14:00 PST"
@@ -216,6 +245,7 @@
                                         android:textSize="13sp"
                                         android:minHeight="0dp"
                                         android:minWidth="0dp"
+                                        android:onClick="editReservation"
                                         android:text="Edit Reservation"
                                         app:cornerRadius="6dp" />
                                     <Button
@@ -229,6 +259,7 @@
                                         android:textSize="13sp"
                                         android:minHeight="0dp"
                                         android:minWidth="0dp"
+                                        android:onClick="cancelReservation"
                                         android:text="Cancel Reservation"
                                         app:cornerRadius="6dp" />
                                 </LinearLayout>
@@ -237,6 +268,7 @@
 
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
+                </LinearLayout>
 
             </LinearLayout>
             <View
@@ -267,40 +299,55 @@
                     <ImageView
                         android:layout_width="14dp"
                         android:layout_height="15dp"
-                        android:layout_marginLeft="200dp"
-                        app:srcCompat="@drawable/uparrow"
+                        android:layout_marginLeft="215dp"
+                        android:id="@+id/pastrestoggle"
+                        android:clickable="true"
+                        android:onClick="pastResToggle"
+                        app:srcCompat="@drawable/downarrow"
                         />
 
                 </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/pastrestoggleitems"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:orientation="vertical">
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
 
                     app:cardUseCompatPadding="true"
                     app:cardElevation="10dp"
                     app:cardCornerRadius="9dp"
+                    android:id = "@+id/pastbox0"
+                    android:visibility="gone"
                     android:layout_height="wrap_content">
                     <LinearLayout
-                        android:id = "@+id/pastbox0"
+
                         android:layout_width="match_parent"
                         android:padding="10dp"
+
                         android:layout_height="wrap_content">
                         <ImageView
                             android:id="@+id/pasttoggle0"
+                            android:clickable="true"
+                            android:onClick="pastResToggle0"
                             android:layout_width="14dp"
                             android:layout_height="15dp"
                             android:layout_marginLeft="10dp"
-                            app:srcCompat="@drawable/uparrow"
+                            app:srcCompat="@drawable/downarrow"
                             />
 
 
                         <LinearLayout
-                            android:layout_width="wrap_content"
+                            android:layout_width="295dp"
                             android:layout_height="wrap_content"
                             android:paddingLeft="15dp"
                             android:orientation="vertical">
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:id="@+id/pastname0"
                                 android:text="Taper Hall"
                                 android:textStyle="bold"
                                 android:gravity="left"
@@ -310,10 +357,14 @@
 
                             </TextView>
                             <LinearLayout
+                                android:id="@+id/pasttext0"
+                                android:visibility="gone"
                                 android:layout_width="280dp"
                                 android:orientation="vertical"
+
                                 android:layout_height="wrap_content">
                                 <TextView
+                                    android:id="@+id/paststatus0"
                                     android:layout_marginTop="5dp"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -324,7 +375,7 @@
                                     android:textColor="#737373"
                                     android:fontFamily="@font/dmsans"/>
                                 <TextView
-
+                                    android:id="@+id/pastdate0"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Date: 10/26/2024"
@@ -334,10 +385,21 @@
                                     android:textColor="#737373"
                                     android:fontFamily="@font/dmsans"/>
                                 <TextView
-                                    android:layout_marginBottom="5dp"
+                                    android:id="@+id/pasttime0"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Time: 12:00 - 14:00 PST"
+                                    android:textStyle="bold"
+                                    android:gravity="left"
+                                    android:textSize="12dp"
+                                    android:textColor="#737373"
+                                    android:fontFamily="@font/dmsans"/>
+                                <TextView
+                                    android:id="@+id/pastlocation0"
+                                    android:layout_marginBottom="5dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Location: Indoor"
                                     android:textStyle="bold"
                                     android:gravity="left"
                                     android:textSize="12dp"
@@ -348,7 +410,881 @@
                         </LinearLayout>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="-15dp"
+                        app:cardUseCompatPadding="true"
+                        app:cardElevation="10dp"
+                        app:cardCornerRadius="9dp"
+                        android:id = "@+id/pastbox1"
+                        android:visibility="gone"
+                        android:layout_height="wrap_content">
+                        <LinearLayout
 
+                            android:layout_width="match_parent"
+                            android:padding="10dp"
+
+                            android:layout_height="wrap_content">
+                            <ImageView
+                                android:id="@+id/pasttoggle1"
+                                android:clickable="true"
+                                android:onClick="pastResToggle1"
+                                android:layout_width="14dp"
+                                android:layout_height="15dp"
+                                android:layout_marginLeft="10dp"
+                                app:srcCompat="@drawable/downarrow"
+                                />
+
+
+                            <LinearLayout
+                                android:layout_width="295dp"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="15dp"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/pastname1"
+                                    android:text="Taper Hall"
+                                    android:textStyle="bold"
+                                    android:gravity="left"
+                                    android:textSize="15dp"
+                                    android:textColor="#696969"
+                                    android:fontFamily="@font/dmsans">
+
+                                </TextView>
+                                <LinearLayout
+                                    android:id="@+id/pasttext1"
+                                    android:visibility="gone"
+                                    android:layout_width="280dp"
+                                    android:orientation="vertical"
+
+                                    android:layout_height="wrap_content">
+                                    <TextView
+                                        android:id="@+id/paststatus1"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Status: Completed"
+                                        android:textStyle="bold"
+                                        android:gravity="left"
+                                        android:textSize="12dp"
+                                        android:textColor="#737373"
+                                        android:fontFamily="@font/dmsans"/>
+                                    <TextView
+                                        android:id="@+id/pastdate1"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Date: 10/26/2024"
+                                        android:textStyle="bold"
+                                        android:gravity="left"
+                                        android:textSize="12dp"
+                                        android:textColor="#737373"
+                                        android:fontFamily="@font/dmsans"/>
+                                    <TextView
+                                        android:id="@+id/pasttime1"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Time: 12:00 - 14:00 PST"
+                                        android:textStyle="bold"
+                                        android:gravity="left"
+                                        android:textSize="12dp"
+                                        android:textColor="#737373"
+                                        android:fontFamily="@font/dmsans"/>
+                                    <TextView
+                                        android:id="@+id/pastlocation1"
+                                        android:layout_marginBottom="5dp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Location: Indoor"
+                                        android:textStyle="bold"
+                                        android:gravity="left"
+                                        android:textSize="12dp"
+                                        android:textColor="#737373"
+                                        android:fontFamily="@font/dmsans"/>
+
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="-15dp"
+                        app:cardUseCompatPadding="true"
+                        app:cardElevation="10dp"
+                        app:cardCornerRadius="9dp"
+                        android:id = "@+id/pastbox2"
+                        android:visibility="gone"
+                        android:layout_height="wrap_content">
+                        <LinearLayout
+
+                            android:layout_width="match_parent"
+                            android:padding="10dp"
+
+                            android:layout_height="wrap_content">
+                            <ImageView
+                                android:id="@+id/pasttoggle2"
+                                android:clickable="true"
+                                android:onClick="pastResToggle2"
+                                android:layout_width="14dp"
+                                android:layout_height="15dp"
+                                android:layout_marginLeft="10dp"
+                                app:srcCompat="@drawable/downarrow"
+                                />
+
+
+                            <LinearLayout
+                                android:layout_width="295dp"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="15dp"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/pastname2"
+                                    android:text="Taper Hall"
+                                    android:textStyle="bold"
+                                    android:gravity="left"
+                                    android:textSize="15dp"
+                                    android:textColor="#696969"
+                                    android:fontFamily="@font/dmsans">
+
+                                </TextView>
+                                <LinearLayout
+                                    android:id="@+id/pasttext2"
+                                    android:visibility="gone"
+                                    android:layout_width="280dp"
+                                    android:orientation="vertical"
+
+                                    android:layout_height="wrap_content">
+                                    <TextView
+                                        android:id="@+id/paststatus2"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Status: Completed"
+                                        android:textStyle="bold"
+                                        android:gravity="left"
+                                        android:textSize="12dp"
+                                        android:textColor="#737373"
+                                        android:fontFamily="@font/dmsans"/>
+                                    <TextView
+                                        android:id="@+id/pastdate2"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Date: 10/26/2024"
+                                        android:textStyle="bold"
+                                        android:gravity="left"
+                                        android:textSize="12dp"
+                                        android:textColor="#737373"
+                                        android:fontFamily="@font/dmsans"/>
+                                    <TextView
+                                        android:id="@+id/pasttime2"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Time: 12:00 - 14:00 PST"
+                                        android:textStyle="bold"
+                                        android:gravity="left"
+                                        android:textSize="12dp"
+                                        android:textColor="#737373"
+                                        android:fontFamily="@font/dmsans"/>
+                                    <TextView
+                                        android:id="@+id/pastlocation2"
+                                        android:layout_marginBottom="5dp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Location: Indoor"
+                                        android:textStyle="bold"
+                                        android:gravity="left"
+                                        android:textSize="12dp"
+                                        android:textColor="#737373"
+                                        android:fontFamily="@font/dmsans"/>
+
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="-15dp"
+                        app:cardUseCompatPadding="true"
+                        app:cardElevation="10dp"
+                        app:cardCornerRadius="9dp"
+                        android:id = "@+id/pastbox3"
+                        android:visibility="gone"
+                        android:layout_height="wrap_content">
+                        <LinearLayout
+
+                            android:layout_width="match_parent"
+                            android:padding="10dp"
+
+                            android:layout_height="wrap_content">
+                            <ImageView
+                                android:id="@+id/pasttoggle3"
+                                android:clickable="true"
+                                android:onClick="pastResToggle3"
+                                android:layout_width="14dp"
+                                android:layout_height="15dp"
+                                android:layout_marginLeft="10dp"
+                                app:srcCompat="@drawable/downarrow"
+                                />
+
+
+                            <LinearLayout
+                                android:layout_width="295dp"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="15dp"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/pastname3"
+                                    android:text="Taper Hall"
+                                    android:textStyle="bold"
+                                    android:gravity="left"
+                                    android:textSize="15dp"
+                                    android:textColor="#696969"
+                                    android:fontFamily="@font/dmsans">
+
+                                </TextView>
+                                <LinearLayout
+                                    android:id="@+id/pasttext3"
+                                    android:visibility="gone"
+                                    android:layout_width="280dp"
+                                    android:orientation="vertical"
+
+                                    android:layout_height="wrap_content">
+                                    <TextView
+                                        android:id="@+id/paststatus3"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Status: Completed"
+                                        android:textStyle="bold"
+                                        android:gravity="left"
+                                        android:textSize="12dp"
+                                        android:textColor="#737373"
+                                        android:fontFamily="@font/dmsans"/>
+                                    <TextView
+                                        android:id="@+id/pastdate3"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Date: 10/26/2024"
+                                        android:textStyle="bold"
+                                        android:gravity="left"
+                                        android:textSize="12dp"
+                                        android:textColor="#737373"
+                                        android:fontFamily="@font/dmsans"/>
+                                    <TextView
+                                        android:id="@+id/pasttime3"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Time: 12:00 - 14:00 PST"
+                                        android:textStyle="bold"
+                                        android:gravity="left"
+                                        android:textSize="12dp"
+                                        android:textColor="#737373"
+                                        android:fontFamily="@font/dmsans"/>
+                                    <TextView
+                                        android:id="@+id/pastlocation3"
+                                        android:layout_marginBottom="5dp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Location: Indoor"
+                                        android:textStyle="bold"
+                                        android:gravity="left"
+                                        android:textSize="12dp"
+                                        android:textColor="#737373"
+                                        android:fontFamily="@font/dmsans"/>
+
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="-15dp"
+                        app:cardUseCompatPadding="true"
+                        app:cardElevation="10dp"
+                        app:cardCornerRadius="9dp"
+                        android:id = "@+id/pastbox4"
+                        android:visibility="gone"
+                        android:layout_height="wrap_content">
+                        <LinearLayout
+
+                            android:layout_width="match_parent"
+                            android:padding="10dp"
+
+                            android:layout_height="wrap_content">
+                            <ImageView
+                                android:id="@+id/pasttoggle4"
+                                android:clickable="true"
+                                android:onClick="pastResToggle4"
+                                android:layout_width="14dp"
+                                android:layout_height="15dp"
+                                android:layout_marginLeft="10dp"
+                                app:srcCompat="@drawable/downarrow"
+                                />
+
+
+                            <LinearLayout
+                                android:layout_width="295dp"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="15dp"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/pastname4"
+                                    android:text="Taper Hall"
+                                    android:textStyle="bold"
+                                    android:gravity="left"
+                                    android:textSize="15dp"
+                                    android:textColor="#696969"
+                                    android:fontFamily="@font/dmsans">
+
+                                </TextView>
+                                <LinearLayout
+                                    android:id="@+id/pasttext4"
+                                    android:visibility="gone"
+                                    android:layout_width="280dp"
+                                    android:orientation="vertical"
+
+                                    android:layout_height="wrap_content">
+                                    <TextView
+                                        android:id="@+id/paststatus4"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Status: Completed"
+                                        android:textStyle="bold"
+                                        android:gravity="left"
+                                        android:textSize="12dp"
+                                        android:textColor="#737373"
+                                        android:fontFamily="@font/dmsans"/>
+                                    <TextView
+                                        android:id="@+id/pastdate4"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Date: 10/26/2024"
+                                        android:textStyle="bold"
+                                        android:gravity="left"
+                                        android:textSize="12dp"
+                                        android:textColor="#737373"
+                                        android:fontFamily="@font/dmsans"/>
+                                    <TextView
+                                        android:id="@+id/pasttime4"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Time: 12:00 - 14:00 PST"
+                                        android:textStyle="bold"
+                                        android:gravity="left"
+                                        android:textSize="12dp"
+                                        android:textColor="#737373"
+                                        android:fontFamily="@font/dmsans"/>
+                                    <TextView
+                                        android:id="@+id/pastlocation4"
+                                        android:layout_marginBottom="5dp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Location: Indoor"
+                                        android:textStyle="bold"
+                                        android:gravity="left"
+                                        android:textSize="12dp"
+                                        android:textColor="#737373"
+                                        android:fontFamily="@font/dmsans"/>
+
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="-15dp"
+                        app:cardUseCompatPadding="true"
+                        app:cardElevation="10dp"
+                        app:cardCornerRadius="9dp"
+                        android:id = "@+id/pastbox5"
+                        android:visibility="gone"
+                        android:layout_height="wrap_content">
+                        <LinearLayout
+
+                            android:layout_width="match_parent"
+                            android:padding="10dp"
+
+                            android:layout_height="wrap_content">
+                            <ImageView
+                                android:id="@+id/pasttoggle5"
+                                android:clickable="true"
+                                android:onClick="pastResToggle5"
+                                android:layout_width="14dp"
+                                android:layout_height="15dp"
+                                android:layout_marginLeft="10dp"
+                                app:srcCompat="@drawable/downarrow"
+                                />
+
+
+                            <LinearLayout
+                                android:layout_width="295dp"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="15dp"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/pastname5"
+                                    android:text="Taper Hall"
+                                    android:textStyle="bold"
+                                    android:gravity="left"
+                                    android:textSize="15dp"
+                                    android:textColor="#696969"
+                                    android:fontFamily="@font/dmsans">
+
+                                </TextView>
+                                <LinearLayout
+                                    android:id="@+id/pasttext5"
+                                    android:visibility="gone"
+                                    android:layout_width="280dp"
+                                    android:orientation="vertical"
+
+                                    android:layout_height="wrap_content">
+                                    <TextView
+                                        android:id="@+id/paststatus5"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Status: Completed"
+                                        android:textStyle="bold"
+                                        android:gravity="left"
+                                        android:textSize="12dp"
+                                        android:textColor="#737373"
+                                        android:fontFamily="@font/dmsans"/>
+                                    <TextView
+                                        android:id="@+id/pastdate5"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Date: 10/26/2024"
+                                        android:textStyle="bold"
+                                        android:gravity="left"
+                                        android:textSize="12dp"
+                                        android:textColor="#737373"
+                                        android:fontFamily="@font/dmsans"/>
+                                    <TextView
+                                        android:id="@+id/pasttime5"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Time: 12:00 - 14:00 PST"
+                                        android:textStyle="bold"
+                                        android:gravity="left"
+                                        android:textSize="12dp"
+                                        android:textColor="#737373"
+                                        android:fontFamily="@font/dmsans"/>
+                                    <TextView
+                                        android:id="@+id/pastlocation5"
+                                        android:layout_marginBottom="5dp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Location: Indoor"
+                                        android:textStyle="bold"
+                                        android:gravity="left"
+                                        android:textSize="12dp"
+                                        android:textColor="#737373"
+                                        android:fontFamily="@font/dmsans"/>
+
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="-15dp"
+                        app:cardUseCompatPadding="true"
+                        app:cardElevation="10dp"
+                        app:cardCornerRadius="9dp"
+                        android:id = "@+id/pastbox6"
+                        android:visibility="gone"
+                        android:layout_height="wrap_content">
+                        <LinearLayout
+
+                            android:layout_width="match_parent"
+                            android:padding="10dp"
+
+                            android:layout_height="wrap_content">
+                            <ImageView
+                                android:id="@+id/pasttoggle6"
+                                android:clickable="true"
+                                android:onClick="pastResToggle6"
+                                android:layout_width="14dp"
+                                android:layout_height="15dp"
+                                android:layout_marginLeft="10dp"
+                                app:srcCompat="@drawable/downarrow"
+                                />
+
+
+                            <LinearLayout
+                                android:layout_width="295dp"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="15dp"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/pastname6"
+                                    android:text="Taper Hall"
+                                    android:textStyle="bold"
+                                    android:gravity="left"
+                                    android:textSize="15dp"
+                                    android:textColor="#696969"
+                                    android:fontFamily="@font/dmsans">
+
+                                </TextView>
+                                <LinearLayout
+                                    android:id="@+id/pasttext6"
+                                    android:visibility="gone"
+                                    android:layout_width="280dp"
+                                    android:orientation="vertical"
+
+                                    android:layout_height="wrap_content">
+                                    <TextView
+                                        android:id="@+id/paststatus6"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Status: Completed"
+                                        android:textStyle="bold"
+                                        android:gravity="left"
+                                        android:textSize="12dp"
+                                        android:textColor="#737373"
+                                        android:fontFamily="@font/dmsans"/>
+                                    <TextView
+                                        android:id="@+id/pastdate6"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Date: 10/26/2024"
+                                        android:textStyle="bold"
+                                        android:gravity="left"
+                                        android:textSize="12dp"
+                                        android:textColor="#737373"
+                                        android:fontFamily="@font/dmsans"/>
+                                    <TextView
+                                        android:id="@+id/pasttime6"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Time: 12:00 - 14:00 PST"
+                                        android:textStyle="bold"
+                                        android:gravity="left"
+                                        android:textSize="12dp"
+                                        android:textColor="#737373"
+                                        android:fontFamily="@font/dmsans"/>
+                                    <TextView
+                                        android:id="@+id/pastlocation6"
+                                        android:layout_marginBottom="5dp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Location: Indoor"
+                                        android:textStyle="bold"
+                                        android:gravity="left"
+                                        android:textSize="12dp"
+                                        android:textColor="#737373"
+                                        android:fontFamily="@font/dmsans"/>
+
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="-15dp"
+                        app:cardUseCompatPadding="true"
+                        app:cardElevation="10dp"
+                        app:cardCornerRadius="9dp"
+                        android:id = "@+id/pastbox7"
+                        android:visibility="gone"
+                        android:layout_height="wrap_content">
+                        <LinearLayout
+
+                            android:layout_width="match_parent"
+                            android:padding="10dp"
+
+                            android:layout_height="wrap_content">
+                            <ImageView
+                                android:id="@+id/pasttoggle7"
+                                android:clickable="true"
+                                android:onClick="pastResToggle7"
+                                android:layout_width="14dp"
+                                android:layout_height="15dp"
+                                android:layout_marginLeft="10dp"
+                                app:srcCompat="@drawable/downarrow"
+                                />
+
+
+                            <LinearLayout
+                                android:layout_width="295dp"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="15dp"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/pastname7"
+                                    android:text="Taper Hall"
+                                    android:textStyle="bold"
+                                    android:gravity="left"
+                                    android:textSize="15dp"
+                                    android:textColor="#696969"
+                                    android:fontFamily="@font/dmsans">
+
+                                </TextView>
+                                <LinearLayout
+                                    android:id="@+id/pasttext7"
+                                    android:visibility="gone"
+                                    android:layout_width="280dp"
+                                    android:orientation="vertical"
+
+                                    android:layout_height="wrap_content">
+                                    <TextView
+                                        android:id="@+id/paststatus7"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Status: Completed"
+                                        android:textStyle="bold"
+                                        android:gravity="left"
+                                        android:textSize="12dp"
+                                        android:textColor="#737373"
+                                        android:fontFamily="@font/dmsans"/>
+                                    <TextView
+                                        android:id="@+id/pastdate7"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Date: 10/26/2024"
+                                        android:textStyle="bold"
+                                        android:gravity="left"
+                                        android:textSize="12dp"
+                                        android:textColor="#737373"
+                                        android:fontFamily="@font/dmsans"/>
+                                    <TextView
+                                        android:id="@+id/pasttime7"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Time: 12:00 - 14:00 PST"
+                                        android:textStyle="bold"
+                                        android:gravity="left"
+                                        android:textSize="12dp"
+                                        android:textColor="#737373"
+                                        android:fontFamily="@font/dmsans"/>
+                                    <TextView
+                                        android:id="@+id/pastlocation7"
+                                        android:layout_marginBottom="5dp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Location: Indoor"
+                                        android:textStyle="bold"
+                                        android:gravity="left"
+                                        android:textSize="12dp"
+                                        android:textColor="#737373"
+                                        android:fontFamily="@font/dmsans"/>
+
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="-15dp"
+                        app:cardUseCompatPadding="true"
+                        app:cardElevation="10dp"
+                        app:cardCornerRadius="9dp"
+                        android:id = "@+id/pastbox8"
+                        android:visibility="gone"
+                        android:layout_height="wrap_content">
+                        <LinearLayout
+
+                            android:layout_width="match_parent"
+                            android:padding="10dp"
+
+                            android:layout_height="wrap_content">
+                            <ImageView
+                                android:id="@+id/pasttoggle8"
+                                android:clickable="true"
+                                android:onClick="pastResToggle8"
+                                android:layout_width="14dp"
+                                android:layout_height="15dp"
+                                android:layout_marginLeft="10dp"
+                                app:srcCompat="@drawable/downarrow"
+                                />
+
+
+                            <LinearLayout
+                                android:layout_width="295dp"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="15dp"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/pastname8"
+                                    android:text="Taper Hall"
+                                    android:textStyle="bold"
+                                    android:gravity="left"
+                                    android:textSize="15dp"
+                                    android:textColor="#696969"
+                                    android:fontFamily="@font/dmsans">
+
+                                </TextView>
+                                <LinearLayout
+                                    android:id="@+id/pasttext8"
+                                    android:visibility="gone"
+                                    android:layout_width="280dp"
+                                    android:orientation="vertical"
+
+                                    android:layout_height="wrap_content">
+                                    <TextView
+                                        android:id="@+id/paststatus8"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Status: Completed"
+                                        android:textStyle="bold"
+                                        android:gravity="left"
+                                        android:textSize="12dp"
+                                        android:textColor="#737373"
+                                        android:fontFamily="@font/dmsans"/>
+                                    <TextView
+                                        android:id="@+id/pastdate8"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Date: 10/26/2024"
+                                        android:textStyle="bold"
+                                        android:gravity="left"
+                                        android:textSize="12dp"
+                                        android:textColor="#737373"
+                                        android:fontFamily="@font/dmsans"/>
+                                    <TextView
+                                        android:id="@+id/pasttime8"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Time: 12:00 - 14:00 PST"
+                                        android:textStyle="bold"
+                                        android:gravity="left"
+                                        android:textSize="12dp"
+                                        android:textColor="#737373"
+                                        android:fontFamily="@font/dmsans"/>
+                                    <TextView
+                                        android:id="@+id/pastlocation8"
+                                        android:layout_marginBottom="5dp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Location: Indoor"
+                                        android:textStyle="bold"
+                                        android:gravity="left"
+                                        android:textSize="12dp"
+                                        android:textColor="#737373"
+                                        android:fontFamily="@font/dmsans"/>
+
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="-15dp"
+                        app:cardUseCompatPadding="true"
+                        app:cardElevation="10dp"
+                        app:cardCornerRadius="9dp"
+                        android:id = "@+id/pastbox9"
+                        android:visibility="gone"
+                        android:layout_height="wrap_content">
+                        <LinearLayout
+
+                            android:layout_width="match_parent"
+                            android:padding="10dp"
+
+                            android:layout_height="wrap_content">
+                            <ImageView
+                                android:id="@+id/pasttoggle9"
+                                android:clickable="true"
+                                android:onClick="pastResToggle9"
+                                android:layout_width="14dp"
+                                android:layout_height="15dp"
+                                android:layout_marginLeft="10dp"
+                                app:srcCompat="@drawable/downarrow"
+                                />
+
+
+                            <LinearLayout
+                                android:layout_width="295dp"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="15dp"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/pastname9"
+                                    android:text="Taper Hall"
+                                    android:textStyle="bold"
+                                    android:gravity="left"
+                                    android:textSize="15dp"
+                                    android:textColor="#696969"
+                                    android:fontFamily="@font/dmsans">
+
+                                </TextView>
+                                <LinearLayout
+                                    android:id="@+id/pasttext9"
+                                    android:visibility="gone"
+                                    android:layout_width="280dp"
+                                    android:orientation="vertical"
+
+                                    android:layout_height="wrap_content">
+                                    <TextView
+                                        android:id="@+id/paststatus9"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Status: Completed"
+                                        android:textStyle="bold"
+                                        android:gravity="left"
+                                        android:textSize="12dp"
+                                        android:textColor="#737373"
+                                        android:fontFamily="@font/dmsans"/>
+                                    <TextView
+                                        android:id="@+id/pastdate9"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Date: 10/26/2024"
+                                        android:textStyle="bold"
+                                        android:gravity="left"
+                                        android:textSize="12dp"
+                                        android:textColor="#737373"
+                                        android:fontFamily="@font/dmsans"/>
+                                    <TextView
+                                        android:id="@+id/pasttime9"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Time: 12:00 - 14:00 PST"
+                                        android:textStyle="bold"
+                                        android:gravity="left"
+                                        android:textSize="12dp"
+                                        android:textColor="#737373"
+                                        android:fontFamily="@font/dmsans"/>
+                                    <TextView
+                                        android:id="@+id/pastlocation9"
+                                        android:layout_marginBottom="5dp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Location: Indoor"
+                                        android:textStyle="bold"
+                                        android:gravity="left"
+                                        android:textSize="12dp"
+                                        android:textColor="#737373"
+                                        android:fontFamily="@font/dmsans"/>
+
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
             </LinearLayout>
             <View
                 android:layout_width="match_parent"
@@ -371,6 +1307,7 @@
                 android:textSize="13sp"
                 android:minHeight="0dp"
                 android:minWidth="0dp"
+                android:onClick="logOut"
                 android:text="Log out"
                 android:textColor="#000000"
                 android:fontFamily="@font/dmsans"
@@ -385,13 +1322,15 @@
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_marginTop="-15dp"
         android:layout_height="100dp">
 
         <ImageView
             android:id="@+id/nav1"
             android:layout_width="205dp"
             android:layout_height="100dp"
-            app:srcCompat="@drawable/navbarprof1" />
+            app:srcCompat="@drawable/navbarprof1"
+            android:onClick="toMapScreen"/>
 
         <ImageView
             android:id="@+id/nav2"
