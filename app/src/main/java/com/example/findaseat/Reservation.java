@@ -288,6 +288,7 @@ public class Reservation extends AppCompatActivity implements View.OnClickListen
 
             ImageView iv1 = (ImageView) findViewById(R.id.toggle);
             iv1.setImageResource(R.drawable.indoor_long);
+            outdoorSelected = false;
 
             for (int i = 0; i < rows.size(); i++) {
                 int row = rows.get(i);
@@ -322,6 +323,7 @@ public class Reservation extends AppCompatActivity implements View.OnClickListen
 
             ImageView iv1 = (ImageView) findViewById(R.id.toggle);
             iv1.setImageResource(R.drawable.outdoor_long);
+            outdoorSelected = true;
 
             for (int i = 0; i < rows.size(); i++) {
                 int row = rows.get(i);
@@ -340,6 +342,7 @@ public class Reservation extends AppCompatActivity implements View.OnClickListen
         if (resWeekThis == false) {
             ImageView iv = (ImageView) findViewById(R.id.week_toggle);
             iv.setImageResource(R.drawable.next_week);
+            thisWeek = false;
         }
 
     }
@@ -1398,6 +1401,9 @@ public class Reservation extends AppCompatActivity implements View.OnClickListen
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             sdf.setTimeZone(TimeZone.getTimeZone("America/Los_Angeles"));
             String json_date = sdf.format(date);
+
+            System.out.println("THE DATE OF MY EDITED/MADE RESERVATION IS:");
+            System.out.println(json_date);
 
 
             String jsonInputString = "{\"idNumber\": \"" + uscid +"\", \"buildingName\": \"" + building_name + "\", \"timeBlocks\":" + result + ", \"indoor\": \"" + indoor +"\", \"isCanceled\": \"" + false + "\", \"date\": \"" + json_date + "\"}";
