@@ -265,7 +265,7 @@ public class Reservation extends AppCompatActivity implements View.OnClickListen
 
         for (int i = 0; i < timeBlocks.size(); i++) {
             String st = timeBlocks.get(i);
-            times.add(st.substring(2));
+            times.add(st.substring(2).trim());
         }
 
         List<Integer> rows = new ArrayList<>();
@@ -1223,11 +1223,13 @@ public class Reservation extends AppCompatActivity implements View.OnClickListen
 
     public void makeReservation(View view) throws IOException {
         TextView error = (TextView) findViewById(R.id.errorMsg);
+        boolean success = true;
         if (selected_cells_idx.size() == 0 && selected_cells_idx_indoor.size() == 0) {
             error.setText("Please select at least one time slot.");
             error.setVisibility(View.VISIBLE);
         }
         // else if user already has a reservation, set error message accordingly
+
         else {
             ArrayList<String> timeBlocks = new ArrayList<>();
 
@@ -1381,6 +1383,7 @@ public class Reservation extends AppCompatActivity implements View.OnClickListen
                 if ((response.toString()).equals("false")) {
                     err.setText("Please cancel your current reservation to make a new one.");
                     err.setVisibility(View.VISIBLE);
+                    success = false;
                 }
 
             }
@@ -1388,6 +1391,12 @@ public class Reservation extends AppCompatActivity implements View.OnClickListen
                 throw new RuntimeException(e);
             } catch (IOException e) {
                 throw new RuntimeException(e);
+            }
+
+            if (success) {
+                Intent intent = new Intent(this, Profile.class);
+                intent.putExtra("uscid", uscid);
+                startActivity(intent);
             }
 
         }
@@ -1554,15 +1563,19 @@ public class Reservation extends AppCompatActivity implements View.OnClickListen
     }
 
     public void backArrow(View view) {
-        Intent intent = new Intent(this, MapsActivity.class);
+
         // add another intent to go to profile screen
 
         if (newRes == true) {
             // go to map
+            Intent intent = new Intent(this, MapsActivity.class);
+            intent.putExtra("uscid", uscid);
             startActivity(intent);
         }
         else {
-            // go to profile screen
+            Intent intent = new Intent(this, Profile.class);
+            intent.putExtra("uscid", uscid);
+            startActivity(intent);
         }
     }
 

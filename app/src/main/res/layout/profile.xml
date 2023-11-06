@@ -9,7 +9,7 @@
     android:backgroundTintMode="add"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context=".LogIn">
+    tools:context=".Profile">
     <LinearLayout
         android:layout_marginTop="25dp"
         android:layout_width="match_parent"

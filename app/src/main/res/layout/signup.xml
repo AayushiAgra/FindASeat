@@ -222,7 +222,7 @@
             android:textSize="14sp"
             android:textStyle="bold"
             android:fontFamily="@font/dmsans"
-            android:text="Don't have an account?" />
+            android:text="Already have an account?" />
         <TextView
 
             android:textColor="#8A00C2"
@@ -235,7 +235,7 @@
             android:clickable="true"
             android:onClick="toLoginScreen"
             android:fontFamily="@font/dmsans"
-            android:text="Sign Up" />
+            android:text="Log In" />
 
     </LinearLayout>
     <LinearLayout

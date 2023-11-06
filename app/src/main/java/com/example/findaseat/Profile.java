@@ -24,10 +24,12 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class Profile extends AppCompatActivity {
     String uscid = null;
+    String buildname = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -225,19 +227,14 @@ public class Profile extends AppCompatActivity {
                 currentreservation = new String[5];
 
                     currentreservation[0] = (String) yourHashMapArray.get("buildingName");
-                    boolean a = (boolean) yourHashMapArray.get("canceled");
-                    if (a){
-                        currentreservation[1] = "Canceled";
-                    }
-                    else{
-                        currentreservation[1] = "Completed";
-                    }
+                    buildname = currentreservation[0];
+                    currentreservation[1] = "Current";
                 currentreservation[2] = yourHashMapArray.get("date").toString();
                 ArrayList<String> temp = (ArrayList<String>) yourHashMapArray.get("timeBlocks");
                 String min = "24:00:00";
                 String max = "00:00:00";
                 for (int i = 0; i < temp.size(); i++){
-                    String parsed = temp.get(i).substring(2);
+                    String parsed = temp.get(i).substring(2).trim();
                     if (parsed.compareTo(min) < 0){
                         min = parsed;
                     }
@@ -258,15 +255,17 @@ public class Profile extends AppCompatActivity {
 
                         String t = max.charAt(0)+ ""+ x + ":0" + max.substring(4);
                         max = t;
+                        System.out.println("2");
 
                     }
                 }
                 else{
+                    System.out.println("3");
                     max = max.charAt(0)+ "" + max.charAt(1) + "" + max.charAt(2) + "3" + max.substring(4);
                 }
                 add += max;
                 currentreservation[3] = add;
-                    a = (boolean) yourHashMapArray.get("indoor");
+                    boolean a = (boolean) yourHashMapArray.get("indoor");
                     if (a){
                         currentreservation[4] = "Indoor";
                     }
@@ -642,10 +641,15 @@ public class Profile extends AppCompatActivity {
     }
 
     public void editReservation(View view) {
-        //TODO: send to edit reservation screen
+        Intent intent = new Intent(this, Reservation.class);
+        intent.putExtra("uscid", uscid);
+        intent.putExtra("building_name", buildname);
+
+        startActivity(intent);
     }
     public void logOut(View view) {
-        //TODO: send intent to map screen
+        Intent intent = new Intent(this, MapsActivity.class);
+        startActivity(intent);
     }
     public void cancelReservation(View view) {
         try { //https://www.baeldung.com/java-http-request

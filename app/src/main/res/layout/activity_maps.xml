@@ -15,7 +15,7 @@
         >
         <ImageView
             android:id="@+id/imgView"
-            android:layout_width="46dp"
+            android:layout_width="50dp"
             android:layout_height="65dp"
             android:layout_marginTop="30dp"
             android:layout_marginRight="15dp"
@@ -25,7 +25,7 @@
         <TextView
             android:layout_width="200dp"
             android:layout_height="125dp"
-            android:textSize="30dp"
+            android:textSize="20dp"
             android:text="Map"
             android:fontFamily="@font/dmsans"
             android:textColor="@color/black"
@@ -55,7 +55,7 @@
 
         <LinearLayout
             android:id="@+id/overlay"
-            android:layout_width="wrap_content"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center_horizontal"
             android:orientation="vertical"
@@ -65,23 +65,32 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:visibility="gone"
-            android:elevation="10dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@id/map"
-                android:fontFamily="@font/dmsans"
-                android:text="Taper Hall"
-                android:textColor="@color/black"
-                android:textSize="20dp"
-                android:id="@+id/buildingName"
-                android:layout_marginBottom="1dp"
-                />
+            android:elevation="10dp"
+            app:cornerRadius="10dp"
+            >
             <androidx.core.widget.NestedScrollView
                 xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:layout_width="250dp"
-                android:layout_height="100dp">
+                android:layout_width="300dp"
+                android:layout_height="30dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/map"
+                    android:fontFamily="@font/dmsans"
+                    android:text="Taper Hall"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
+                    android:id="@+id/buildingName"
+                    android:layout_marginBottom="1dp"
+                    />
+            </androidx.core.widget.NestedScrollView>
+
+            <androidx.core.widget.NestedScrollView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="300dp"
+                android:layout_height="75dp">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -98,16 +107,19 @@
             <Button
                 android:id="@+id/buttonReserve"
                 android:layout_width="wrap_content"
-                android:layout_height="35dp"
+                android:layout_height="40dp"
                 android:layout_gravity="right"
+                android:layout_marginTop="5dp"
                 android:backgroundTint="#8A00C2"
                 android:fontFamily="@font/dmsans"
                 android:text="Make Reservation"
-                android:textSize="10dp"
-                android:textStyle="bold"
-                app:cornerRadius="10dp"
+                android:textSize="15dp"
+                android:textAllCaps="false"
+
                 android:textColor="@color/white"
                 android:onClick="clickButton"
+                app:cornerRadius="10dp"
+
                 />
         </LinearLayout>
 
