@@ -150,7 +150,7 @@ public class SignUp  extends AppCompatActivity {
             try { //https://www.baeldung.com/java-http-request
 
 
-                URL url = new URL("http://172.20.10.2:8080/createUser");
+                URL url = new URL("http://34.125.226.6:8080/createUser");
                 HttpURLConnection con = (HttpURLConnection) url.openConnection();
                 con.setRequestMethod("POST");
                 con.setRequestProperty("Accept", "application/json");
@@ -206,6 +206,15 @@ public class SignUp  extends AppCompatActivity {
             TextView errortext = findViewById(R.id.errorText);
             errortext.setVisibility(View.VISIBLE);
         }
+    }
+
+    public void toMapScreen(View view) {
+        Intent intent = new Intent(this, MapsActivity.class);
+        startActivity(intent);
+    }
+    public void toProfileScreen(View view) {
+        Intent intent = new Intent(this, GuestProfile.class);
+        startActivity(intent);
     }
     public void addPicture(View view) {
         Intent i = new Intent();

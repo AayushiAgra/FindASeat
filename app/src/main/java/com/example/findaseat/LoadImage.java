@@ -37,7 +37,7 @@ class LoadImage extends AsyncTask<Object, Void, Bitmap> {
         try { //https://www.baeldung.com/java-http-request
 
 
-            URL url = new URL("http://172.20.10.2:8080/getUser?documentId=" + uscid);
+            URL url = new URL("http://34.125.226.6:8080/getUser?documentId=" + uscid);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("GET");
 

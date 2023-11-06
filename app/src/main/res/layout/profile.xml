@@ -1329,14 +1329,15 @@
             android:id="@+id/nav1"
             android:layout_width="205dp"
             android:layout_height="100dp"
-            app:srcCompat="@drawable/navbarprof1"
+            app:srcCompat="@drawable/navbar1"
             android:onClick="toMapScreen"/>
 
         <ImageView
             android:id="@+id/nav2"
             android:layout_width="205dp"
             android:layout_height="100dp"
-            app:srcCompat="@drawable/navbar2" />
+            app:srcCompat="@drawable/navbarprof2"
+            android:onClick="toProfileScreen"/>
     </LinearLayout>
 
 

@@ -56,7 +56,7 @@ public class Profile extends AppCompatActivity {
         try { //https://www.baeldung.com/java-http-request
 
 
-            URL url = new URL("http://172.20.10.2:8080/refreshReservations");
+            URL url = new URL("http://34.125.226.6:8080/refreshReservations");
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("PUT");
             int status = con.getResponseCode();
@@ -80,7 +80,7 @@ public class Profile extends AppCompatActivity {
         try { //https://www.baeldung.com/java-http-request
 
 
-            URL url = new URL("http://172.20.10.2:8080/getUser?documentId=" + uscid);
+            URL url = new URL("http://34.125.226.6:8080/getUser?documentId=" + uscid);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("GET");
 
@@ -124,7 +124,7 @@ public class Profile extends AppCompatActivity {
         try { //https://www.baeldung.com/java-http-request
 
 
-            URL url = new URL("http://172.20.10.2:8080/getPastReservations?documentId=" + uscid);
+            URL url = new URL("http://34.125.226.6:8080/getPastReservations?documentId=" + uscid);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("GET");
 
@@ -203,7 +203,7 @@ public class Profile extends AppCompatActivity {
         try { //https://www.baeldung.com/java-http-request
 
 
-            URL url = new URL("http://172.20.10.2:8080/getCurrentReservation?documentId=" + uscid);
+            URL url = new URL("http://34.125.226.6:8080/getCurrentReservation?documentId=" + uscid);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("GET");
             int status = con.getResponseCode();
@@ -590,6 +590,17 @@ public class Profile extends AppCompatActivity {
         }
 
     }
+
+    public void toMapScreen(View view) {
+        Intent intent = new Intent(this, MapsActivity.class);
+        intent.putExtra("uscid", uscid);
+        startActivity(intent);
+    }
+    public void toProfileScreen(View view) {
+        Intent intent = new Intent(this, Profile.class);
+        intent.putExtra("uscid", uscid);
+        startActivity(intent);
+    }
     public void pastResToggle9(View view) {
         ImageView tog = findViewById(R.id.pasttoggle9);
         View totog = findViewById(R.id.pasttext9);
@@ -640,7 +651,7 @@ public class Profile extends AppCompatActivity {
         try { //https://www.baeldung.com/java-http-request
 
 
-            URL url = new URL("http://172.20.10.2:8080/cancelReservation?documentId=" + uscid);
+            URL url = new URL("http://34.125.226.6:8080/cancelReservation?documentId=" + uscid);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("PUT");
             int status = con.getResponseCode();

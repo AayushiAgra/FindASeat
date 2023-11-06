@@ -37,6 +37,10 @@ public class LogIn  extends AppCompatActivity {
         startActivity(intent);
     }
     public void toMapScreen(View view) {
+        Intent intent = new Intent(this, MapsActivity.class);
+        startActivity(intent);
+    }
+    public void toProfileScreen(View view) {
         Intent intent = new Intent(this, GuestProfile.class);
         startActivity(intent);
     }
@@ -62,7 +66,7 @@ public class LogIn  extends AppCompatActivity {
         try { //https://www.baeldung.com/java-http-request
 
 
-            URL url = new URL("http://172.20.10.2:8080/loginUser?documentId=" + studentid + "&pass=" + pass);
+            URL url = new URL("http://34.125.226.6:8080/loginUser?documentId=" + studentid + "&pass=" + pass);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("GET");
 

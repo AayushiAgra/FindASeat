@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Reservation"
+    android:background="#F9F9F9"
+    android:backgroundTint="#F9F9F9"
+    android:backgroundTintMode="add"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/backarrow"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="left"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp"
+        app:srcCompat="@drawable/back"
+        android:clickable="true"
+        android:onClick="backArrow"
+        />
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/screenTitle"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="-25dp"-->
+    <!--        android:gravity="center"-->
+    <!--        android:textSize="25dp"-->
+    <!--        android:layout_marginRight="5dp"-->
+    <!--        android:textStyle="bold"-->
+    <!--        android:fontFamily="@font/dmsans"-->
+    <!--        android:text="Make Reservation" />-->
+
+    <TextView
+        android:id="@+id/buildingTitle"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-40dp"
+        android:fontFamily="@font/dmsans"
+        android:gravity="center"
+        android:text="Taper Hall"
+        android:textSize="25dp"
+        android:textColor="#696969" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="250dp"
+        android:layout_height="150dp"
+        app:cardCornerRadius="10dp"
+        android:layout_margin="5dp"
+
+        android:elevation="10dp"
+        >
+
+        <ImageView
+
+            android:id="@+id/buildingImg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/taper"
+            android:background="@color/white"
+            android:scaleType="centerCrop"
+
+            />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.core.widget.NestedScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <TextView
+            android:id="@+id/buildingDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:fontFamily="@font/dmsans"
+            android:gravity="center"
+            android:text="Taper Hall is a common classroom and work space for students. It is a quiet building with 3 floors and located near the main USC campus entrance."
+            android:textSize="15dp"
+            android:textColor="#737373" />
+    </androidx.core.widget.NestedScrollView>
+
+
+    <ImageView
+        android:id="@+id/toggle"
+        android:layout_width="170dp"
+        android:layout_height="45dp"
+        android:layout_gravity="center"
+        android:clickable="true"
+        android:layout_marginBottom="-10dp"
+
+        app:srcCompat="@drawable/outdoor_long"
+        android:onClick="toggle"/>
+    <ImageView
+        android:id="@+id/week_toggle"
+        android:layout_width="170dp"
+        android:layout_height="45dp"
+        android:layout_gravity="center"
+        android:clickable="true"
+        app:srcCompat="@drawable/this_week"
+        android:onClick="toggle_week"
+        />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="225dp"
+        android:layout_marginBottom="5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.gridlayout.widget.GridLayout
+                android:id="@+id/gridLayout01"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                app:columnCount="6"
+                app:rowCount="25"
+
+                ></androidx.gridlayout.widget.GridLayout>
+
+            <androidx.gridlayout.widget.GridLayout
+                android:id="@+id/gridLayout02"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:visibility="gone"
+                app:columnCount="6"
+
+                app:rowCount="25"></androidx.gridlayout.widget.GridLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <TextView
+        android:id="@+id/errorMsg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="3dp"
+        android:fontFamily="@font/dmsans"
+        android:gravity="center"
+        android:text="An error occurred."
+        android:textColor="@color/design_default_color_error"
+        android:textSize="15dp"
+        android:visibility="invisible"
+        />
+
+    <Button
+        android:id="@+id/buttonReserve"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_gravity="center"
+        android:backgroundTint="#8A00C2"
+        android:fontFamily="@font/dmsans"
+        android:text="Make Reservation"
+        android:textSize="15dp"
+
+        android:textStyle="bold"
+        app:cornerRadius="10dp"
+        android:paddingTop="4dp"
+        android:textColor="@color/white"
+        android:onClick="makeReservation"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_height="100dp">
+
+        <ImageView
+            android:id="@+id/nav1"
+            android:layout_width="205dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/navbar2"
+            android:onClick="toMapScreen"/>
+
+        <ImageView
+            android:id="@+id/nav2"
+            android:layout_width="205dp"
+            android:layout_height="100dp"
+            app:srcCompat="@drawable/navbarprof1"
+            android:onClick="toProfileScreen"/>
+    </LinearLayout>
+
+</LinearLayout>

@@ -28,4 +28,12 @@ public class GuestProfile extends AppCompatActivity {
         Intent intent = new Intent(this, SignUp.class);
         startActivity(intent);
     }
+    public void toMapScreen(View view) {
+        Intent intent = new Intent(this, MapsActivity.class);
+        startActivity(intent);
+    }
+    public void toProfileScreen(View view) {
+        Intent intent = new Intent(this, GuestProfile.class);
+        startActivity(intent);
+    }
 }
