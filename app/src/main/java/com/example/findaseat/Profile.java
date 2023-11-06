@@ -308,143 +308,143 @@ public class Profile extends AppCompatActivity {
             location.setText("Location: " + currentreservation[4]);
         }
         if (pastreservations.length > 0){
-            androidx.cardview.widget.CardView x = findViewById(R.id.pastbox0);
-            x.setVisibility(View.VISIBLE);
-            TextView buildingname = findViewById(R.id.pastname0);
-            buildingname.setText(pastreservations[0][0]);
-            TextView status = findViewById(R.id.paststatus0);
-            status.setText("Status: " + pastreservations[0][1]);
-            TextView date = findViewById(R.id.pastdate0);
-            date.setText("Date: " + pastreservations[0][2]);
-            TextView time = findViewById(R.id.pasttime0);
-            time.setText("Time: " + pastreservations[0][3]);
-            TextView location = findViewById(R.id.pastlocation0);
-            location.setText("Location: " + pastreservations[0][4]);
-        }
-        if (pastreservations.length > 1){
-            androidx.cardview.widget.CardView x = findViewById(R.id.pastbox1);
-            x.setVisibility(View.VISIBLE);
-            TextView buildingname = findViewById(R.id.pastname1);
-            buildingname.setText(pastreservations[1][0]);
-            TextView status = findViewById(R.id.paststatus1);
-            status.setText("Status: " + pastreservations[1][1]);
-            TextView date = findViewById(R.id.pastdate1);
-            date.setText("Date: " + pastreservations[1][2]);
-            TextView time = findViewById(R.id.pasttime1);
-            time.setText("Time: " + pastreservations[1][3]);
-            TextView location = findViewById(R.id.pastlocation1);
-            location.setText("Location: " + pastreservations[1][4]);
-        }
-        if (pastreservations.length > 2){
-            androidx.cardview.widget.CardView x = findViewById(R.id.pastbox2);
-            x.setVisibility(View.VISIBLE);
-            TextView buildingname = findViewById(R.id.pastname2);
-            buildingname.setText(pastreservations[2][0]);
-            TextView status = findViewById(R.id.paststatus2);
-            status.setText("Status: " + pastreservations[2][1]);
-            TextView date = findViewById(R.id.pastdate2);
-            date.setText("Date: " + pastreservations[2][2]);
-            TextView time = findViewById(R.id.pasttime2);
-            time.setText("Time: " + pastreservations[2][3]);
-            TextView location = findViewById(R.id.pastlocation2);
-            location.setText("Location: " + pastreservations[2][4]);
-        }
-        if (pastreservations.length > 3){
-            androidx.cardview.widget.CardView x = findViewById(R.id.pastbox3);
-            x.setVisibility(View.VISIBLE);
-            TextView buildingname = findViewById(R.id.pastname3);
-            buildingname.setText(pastreservations[3][0]);
-            TextView status = findViewById(R.id.paststatus3);
-            status.setText("Status: " + pastreservations[3][1]);
-            TextView date = findViewById(R.id.pastdate3);
-            date.setText("Date: " + pastreservations[3][2]);
-            TextView time = findViewById(R.id.pasttime3);
-            time.setText("Time: " + pastreservations[3][3]);
-            TextView location = findViewById(R.id.pastlocation3);
-            location.setText("Location: " + pastreservations[3][4]);
-        }
-        if (pastreservations.length > 4){
-            androidx.cardview.widget.CardView x = findViewById(R.id.pastbox4);
-            x.setVisibility(View.VISIBLE);
-            TextView buildingname = findViewById(R.id.pastname4);
-            buildingname.setText(pastreservations[4][0]);
-            TextView status = findViewById(R.id.paststatus4);
-            status.setText("Status: " + pastreservations[4][1]);
-            TextView date = findViewById(R.id.pastdate4);
-            date.setText("Date: " + pastreservations[4][2]);
-            TextView time = findViewById(R.id.pasttime4);
-            time.setText("Time: " + pastreservations[4][3]);
-            TextView location = findViewById(R.id.pastlocation4);
-            location.setText("Location: " + pastreservations[4][4]);
-        }
-        if (pastreservations.length > 5){
-            androidx.cardview.widget.CardView x = findViewById(R.id.pastbox5);
-            x.setVisibility(View.VISIBLE);
-            TextView buildingname = findViewById(R.id.pastname5);
-            buildingname.setText(pastreservations[5][0]);
-            TextView status = findViewById(R.id.paststatus5);
-            status.setText("Status: " + pastreservations[5][1]);
-            TextView date = findViewById(R.id.pastdate5);
-            date.setText("Date: " + pastreservations[5][2]);
-            TextView time = findViewById(R.id.pasttime5);
-            time.setText("Time: " + pastreservations[5][3]);
-            TextView location = findViewById(R.id.pastlocation5);
-            location.setText("Location: " + pastreservations[5][4]);
-        }
-        if (pastreservations.length > 6){
-            androidx.cardview.widget.CardView x = findViewById(R.id.pastbox6);
-            x.setVisibility(View.VISIBLE);
-            TextView buildingname = findViewById(R.id.pastname6);
-            buildingname.setText(pastreservations[6][0]);
-            TextView status = findViewById(R.id.paststatus6);
-            status.setText("Status: " + pastreservations[6][1]);
-            TextView date = findViewById(R.id.pastdate6);
-            date.setText("Date: " + pastreservations[6][2]);
-            TextView time = findViewById(R.id.pasttime6);
-            time.setText("Time: " + pastreservations[6][3]);
-            TextView location = findViewById(R.id.pastlocation6);
-            location.setText("Location: " + pastreservations[6][4]);
-        }
-        if (pastreservations.length > 7){
-            androidx.cardview.widget.CardView x = findViewById(R.id.pastbox7);
-            x.setVisibility(View.VISIBLE);
-            TextView buildingname = findViewById(R.id.pastname7);
-            buildingname.setText(pastreservations[7][0]);
-            TextView status = findViewById(R.id.paststatus7);
-            status.setText("Status: " + pastreservations[7][1]);
-            TextView date = findViewById(R.id.pastdate7);
-            date.setText("Date: " + pastreservations[7][2]);
-            TextView time = findViewById(R.id.pasttime7);
-            time.setText("Time: " + pastreservations[7][3]);
-            TextView location = findViewById(R.id.pastlocation7);
-            location.setText("Location: " + pastreservations[7][4]);
-        }
-        if (pastreservations.length > 9){
-            androidx.cardview.widget.CardView x = findViewById(R.id.pastbox8);
-            x.setVisibility(View.VISIBLE);
-            TextView buildingname = findViewById(R.id.pastname8);
-            buildingname.setText(pastreservations[8][0]);
-            TextView status = findViewById(R.id.paststatus8);
-            status.setText("Status: " + pastreservations[8][1]);
-            TextView date = findViewById(R.id.pastdate8);
-            date.setText("Date: " + pastreservations[8][2]);
-            TextView time = findViewById(R.id.pasttime8);
-            time.setText("Time: " + pastreservations[8][3]);
-            TextView location = findViewById(R.id.pastlocation8);
-            location.setText("Location: " + pastreservations[8][4]);
-        }
-        if (pastreservations.length > 9){
             androidx.cardview.widget.CardView x = findViewById(R.id.pastbox9);
             x.setVisibility(View.VISIBLE);
             TextView buildingname = findViewById(R.id.pastname9);
             buildingname.setText(pastreservations[0][0]);
             TextView status = findViewById(R.id.paststatus9);
-            status.setText("Status: " + pastreservations[9][1]);
+            status.setText("Status: " + pastreservations[0][1]);
             TextView date = findViewById(R.id.pastdate9);
-            date.setText("Date: " + pastreservations[9][2]);
+            date.setText("Date: " + pastreservations[0][2]);
             TextView time = findViewById(R.id.pasttime9);
-            time.setText("Time: " + pastreservations[9][3]);
+            time.setText("Time: " + pastreservations[0][3]);
             TextView location = findViewById(R.id.pastlocation9);
+            location.setText("Location: " + pastreservations[0][4]);
+        }
+        if (pastreservations.length > 1){
+            androidx.cardview.widget.CardView x = findViewById(R.id.pastbox8);
+            x.setVisibility(View.VISIBLE);
+            TextView buildingname = findViewById(R.id.pastname8);
+            buildingname.setText(pastreservations[1][0]);
+            TextView status = findViewById(R.id.paststatus8);
+            status.setText("Status: " + pastreservations[1][1]);
+            TextView date = findViewById(R.id.pastdate8);
+            date.setText("Date: " + pastreservations[1][2]);
+            TextView time = findViewById(R.id.pasttime8);
+            time.setText("Time: " + pastreservations[1][3]);
+            TextView location = findViewById(R.id.pastlocation8);
+            location.setText("Location: " + pastreservations[1][4]);
+        }
+        if (pastreservations.length > 2){
+            androidx.cardview.widget.CardView x = findViewById(R.id.pastbox7);
+            x.setVisibility(View.VISIBLE);
+            TextView buildingname = findViewById(R.id.pastname7);
+            buildingname.setText(pastreservations[2][0]);
+            TextView status = findViewById(R.id.paststatus7);
+            status.setText("Status: " + pastreservations[2][1]);
+            TextView date = findViewById(R.id.pastdate7);
+            date.setText("Date: " + pastreservations[2][2]);
+            TextView time = findViewById(R.id.pasttime7);
+            time.setText("Time: " + pastreservations[2][3]);
+            TextView location = findViewById(R.id.pastlocation7);
+            location.setText("Location: " + pastreservations[2][4]);
+        }
+        if (pastreservations.length > 3){
+            androidx.cardview.widget.CardView x = findViewById(R.id.pastbox6);
+            x.setVisibility(View.VISIBLE);
+            TextView buildingname = findViewById(R.id.pastname6);
+            buildingname.setText(pastreservations[3][0]);
+            TextView status = findViewById(R.id.paststatus6);
+            status.setText("Status: " + pastreservations[3][1]);
+            TextView date = findViewById(R.id.pastdate6);
+            date.setText("Date: " + pastreservations[3][2]);
+            TextView time = findViewById(R.id.pasttime6);
+            time.setText("Time: " + pastreservations[3][3]);
+            TextView location = findViewById(R.id.pastlocation6);
+            location.setText("Location: " + pastreservations[3][4]);
+        }
+        if (pastreservations.length > 4){
+            androidx.cardview.widget.CardView x = findViewById(R.id.pastbox5);
+            x.setVisibility(View.VISIBLE);
+            TextView buildingname = findViewById(R.id.pastname5);
+            buildingname.setText(pastreservations[4][0]);
+            TextView status = findViewById(R.id.paststatus5);
+            status.setText("Status: " + pastreservations[4][1]);
+            TextView date = findViewById(R.id.pastdate5);
+            date.setText("Date: " + pastreservations[4][2]);
+            TextView time = findViewById(R.id.pasttime5);
+            time.setText("Time: " + pastreservations[4][3]);
+            TextView location = findViewById(R.id.pastlocation5);
+            location.setText("Location: " + pastreservations[4][4]);
+        }
+        if (pastreservations.length > 5){
+            androidx.cardview.widget.CardView x = findViewById(R.id.pastbox4);
+            x.setVisibility(View.VISIBLE);
+            TextView buildingname = findViewById(R.id.pastname4);
+            buildingname.setText(pastreservations[5][0]);
+            TextView status = findViewById(R.id.paststatus4);
+            status.setText("Status: " + pastreservations[5][1]);
+            TextView date = findViewById(R.id.pastdate4);
+            date.setText("Date: " + pastreservations[5][2]);
+            TextView time = findViewById(R.id.pasttime4);
+            time.setText("Time: " + pastreservations[5][3]);
+            TextView location = findViewById(R.id.pastlocation4);
+            location.setText("Location: " + pastreservations[5][4]);
+        }
+        if (pastreservations.length > 6){
+            androidx.cardview.widget.CardView x = findViewById(R.id.pastbox3);
+            x.setVisibility(View.VISIBLE);
+            TextView buildingname = findViewById(R.id.pastname3);
+            buildingname.setText(pastreservations[6][0]);
+            TextView status = findViewById(R.id.paststatus3);
+            status.setText("Status: " + pastreservations[6][1]);
+            TextView date = findViewById(R.id.pastdate3);
+            date.setText("Date: " + pastreservations[6][2]);
+            TextView time = findViewById(R.id.pasttime3);
+            time.setText("Time: " + pastreservations[6][3]);
+            TextView location = findViewById(R.id.pastlocation3);
+            location.setText("Location: " + pastreservations[6][4]);
+        }
+        if (pastreservations.length > 7){
+            androidx.cardview.widget.CardView x = findViewById(R.id.pastbox2);
+            x.setVisibility(View.VISIBLE);
+            TextView buildingname = findViewById(R.id.pastname2);
+            buildingname.setText(pastreservations[7][0]);
+            TextView status = findViewById(R.id.paststatus2);
+            status.setText("Status: " + pastreservations[7][1]);
+            TextView date = findViewById(R.id.pastdate2);
+            date.setText("Date: " + pastreservations[7][2]);
+            TextView time = findViewById(R.id.pasttime2);
+            time.setText("Time: " + pastreservations[7][3]);
+            TextView location = findViewById(R.id.pastlocation2);
+            location.setText("Location: " + pastreservations[7][4]);
+        }
+        if (pastreservations.length > 8){
+            androidx.cardview.widget.CardView x = findViewById(R.id.pastbox1);
+            x.setVisibility(View.VISIBLE);
+            TextView buildingname = findViewById(R.id.pastname1);
+            buildingname.setText(pastreservations[8][0]);
+            TextView status = findViewById(R.id.paststatus1);
+            status.setText("Status: " + pastreservations[8][1]);
+            TextView date = findViewById(R.id.pastdate1);
+            date.setText("Date: " + pastreservations[8][2]);
+            TextView time = findViewById(R.id.pasttime1);
+            time.setText("Time: " + pastreservations[8][3]);
+            TextView location = findViewById(R.id.pastlocation1);
+            location.setText("Location: " + pastreservations[8][4]);
+        }
+        if (pastreservations.length > 9){
+            androidx.cardview.widget.CardView x = findViewById(R.id.pastbox0);
+            x.setVisibility(View.VISIBLE);
+            TextView buildingname = findViewById(R.id.pastname0);
+            buildingname.setText(pastreservations[9][0]);
+            TextView status = findViewById(R.id.paststatus0);
+            status.setText("Status: " + pastreservations[9][1]);
+            TextView date = findViewById(R.id.pastdate0);
+            date.setText("Date: " + pastreservations[9][2]);
+            TextView time = findViewById(R.id.pasttime0);
+            time.setText("Time: " + pastreservations[9][3]);
+            TextView location = findViewById(R.id.pastlocation0);
             location.setText("Location: " + pastreservations[9][4]);
         }
 

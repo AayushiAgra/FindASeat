@@ -706,11 +706,23 @@ public class Reservation extends AppCompatActivity implements View.OnClickListen
                     TextView tv1 = findTextView(i, j);
                     TextView tv2 = findTextViewIndoor(i, j);
 
-                    tv1.setBackgroundColor(Color.LTGRAY);
-                    tv2.setBackgroundColor(Color.LTGRAY);
+                    String tv1_string = (String) tv1.getText();
+                    String tv2_string = (String) tv2.getText();
 
-                    tv1.setText("");
-                    tv2.setText("");
+
+
+                    if (!tv1_string.equals("")) {
+                        tv1.setBackgroundColor(Color.parseColor("#b2b2b2"));
+                        tv1.setText("");
+                    }
+                    if (!tv2_string.equals("")) {
+                        tv2.setBackgroundColor(Color.parseColor("#b2b2b2"));
+                        tv2.setText("");
+                    }
+
+//                    tv2.setBackgroundColor(Color.parseColor("#BFBFBF"));;
+//
+//                    tv2.setText("");
 
                 }
             }
@@ -724,11 +736,17 @@ public class Reservation extends AppCompatActivity implements View.OnClickListen
                         TextView tv1 = findTextView(i, j);
                         TextView tv2 = findTextViewIndoor(i, j);
 
-                        tv1.setBackgroundColor(Color.LTGRAY);
-                        tv2.setBackgroundColor(Color.LTGRAY);
+                        String tv1_string = (String) tv1.getText();
+                        String tv2_string = (String) tv2.getText();
 
-                        tv1.setText("");
-                        tv2.setText("");
+                        if (!tv1_string.equals("")) {
+                            tv1.setBackgroundColor(Color.parseColor("#b2b2b2"));
+                            tv1.setText("");
+                        }
+                        if (!tv2_string.equals("")) {
+                            tv2.setBackgroundColor(Color.parseColor("#b2b2b2"));
+                            tv2.setText("");
+                        }
                     }
                 }
             }
@@ -763,11 +781,17 @@ public class Reservation extends AppCompatActivity implements View.OnClickListen
                 TextView tv1 = findTextView(i, dayOfWeek-1);
                 TextView tv2 = findTextViewIndoor(i, dayOfWeek-1);
 
-                tv1.setBackgroundColor(Color.LTGRAY);
-                tv2.setBackgroundColor(Color.LTGRAY);
+                String tv1_string = (String) tv1.getText();
+                String tv2_string = (String) tv2.getText();
 
-                tv1.setText("");
-                tv2.setText("");
+                if (!tv1_string.equals("")) {
+                    tv1.setBackgroundColor(Color.parseColor("#b2b2b2"));
+                    tv1.setText("");
+                }
+                if (!tv2_string.equals("")) {
+                    tv2.setBackgroundColor(Color.parseColor("#b2b2b2"));
+                    tv2.setText("");
+                }
             }
         }
     }
@@ -828,12 +852,18 @@ public class Reservation extends AppCompatActivity implements View.OnClickListen
 
                 System.out.println(key);
 
+                if (avails_outdoor.containsKey(key)) {
+                    double temp = (double) avails_outdoor.get(key);
 
-                double temp = (double) avails_outdoor.get(key);
+                    int seats = (int)Math.round(temp);
 
-                int seats = (int)Math.round(temp);
+                    tv.setText(String.valueOf(seats));
+                }
+                else {
+                    tv.setText("");
+                    tv.setBackgroundColor(Color.LTGRAY);
+                }
 
-                tv.setText(String.valueOf(seats));
             }
         }
 
@@ -867,12 +897,18 @@ public class Reservation extends AppCompatActivity implements View.OnClickListen
 
                 System.out.println(key);
 
+                if (avails_indoor.containsKey(key)) {
+                    double temp = (double) avails_indoor.get(key);
 
-                double temp = (double) avails_indoor.get(key);
+                    int seats = (int)Math.round(temp);
 
-                int seats = (int)Math.round(temp);
+                    tv.setText(String.valueOf(seats));
+                }
+                else {
+                    tv.setText("");
+                    tv.setBackgroundColor(Color.LTGRAY);
+                }
 
-                tv.setText(String.valueOf(seats));
             }
         }
 
