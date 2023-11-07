@@ -176,7 +176,11 @@ public class Reservation extends AppCompatActivity implements View.OnClickListen
         selected_cells_idx_indoor = new ArrayList<>();
         cell_tvs_indoor = new ArrayList<>();
 
-        populateGrids();
+        try {
+            populateGrids();
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
 
         if (!newRes) {
             populateRes();
@@ -347,7 +351,7 @@ public class Reservation extends AppCompatActivity implements View.OnClickListen
 
     }
 
-    public void populateGrids() {
+    public void populateGrids() throws ParseException {
         androidx.gridlayout.widget.GridLayout grid = (androidx.gridlayout.widget.GridLayout) findViewById(R.id.gridLayout01);
 
         for (int i = 0; i < 25; i++) {
@@ -691,7 +695,7 @@ public class Reservation extends AppCompatActivity implements View.OnClickListen
 
     }
 
-    public void putPastTimes() {
+    public void putPastTimes() throws ParseException {
         // IMPLEMENT FOR TIMES AS WELL AS DAYS
         Date date = new Date();
         Calendar cal = Calendar.getInstance();
@@ -780,6 +784,13 @@ public class Reservation extends AppCompatActivity implements View.OnClickListen
                     break;
                 }
             }
+
+            Date endTime = sdf.parse("20:00:00");
+            Date currTime = sdf.parse(time);
+            if (currTime.compareTo(endTime) >= 0) {
+                row = 24;
+            }
+
             for (int i = 1; i <= row; i++) {
                 TextView tv1 = findTextView(i, dayOfWeek-1);
                 TextView tv2 = findTextViewIndoor(i, dayOfWeek-1);
@@ -1444,7 +1455,7 @@ public class Reservation extends AppCompatActivity implements View.OnClickListen
         }
     }
 
-    public void toggle_week(View view) throws IOException {
+    public void toggle_week(View view) throws IOException, ParseException {
         clearErr();
         if (thisWeek) {
 //            cell_tvs = new ArrayList<>();

@@ -78,18 +78,27 @@ public class SignUp  extends AppCompatActivity {
                 Color.parseColor("#880000")
         };
 
+        int[] colors2 = new int[] {
+                R.color.mtrl_textinput_default_box_stroke_color,
+                R.color.mtrl_textinput_default_box_stroke_color,
+                R.color.mtrl_textinput_default_box_stroke_color,
+                R.color.mtrl_textinput_default_box_stroke_color
+        };
+
+
         ColorStateList myColorList = new ColorStateList(states, colors);
+        ColorStateList myColorList2 = new ColorStateList(states, colors2);
         boolean tosubmit = true;
         if (name.equals("")){
             tosubmit = false;
             namel.setBoxStrokeColorStateList(myColorList);
         }
         else{
-            namel.setBoxStrokeColorStateList(AppCompatResources.getColorStateList(this, R.color.mtrl_textinput_default_box_stroke_color));
+            namel.setBoxStrokeColorStateList(myColorList2);
         }
         if (studentid.matches("\\d+") && studentid.length() == 10){
 
-            uscid.setBoxStrokeColorStateList(AppCompatResources.getColorStateList(this, R.color.mtrl_textinput_default_box_stroke_color));
+            uscid.setBoxStrokeColorStateList(myColorList2);
         }
         else{
             tosubmit = false;
@@ -97,19 +106,19 @@ public class SignUp  extends AppCompatActivity {
         }
         if (affiliation.equalsIgnoreCase("Undergraduate Student")){
             affiliation = "STUDENT";
-            affl.setBoxStrokeColorStateList(AppCompatResources.getColorStateList(this, R.color.mtrl_textinput_default_box_stroke_color));
+            affl.setBoxStrokeColorStateList(myColorList2);
         }
         else if (affiliation.equalsIgnoreCase("Graduate Student")){
             affiliation = "GRADUATE STUDENT";
-            affl.setBoxStrokeColorStateList(AppCompatResources.getColorStateList(this, R.color.mtrl_textinput_default_box_stroke_color));
+            affl.setBoxStrokeColorStateList(myColorList2);
         }
         else if (affiliation.equalsIgnoreCase("Faculty")){
             affiliation = "FACULTY";
-            affl.setBoxStrokeColorStateList(AppCompatResources.getColorStateList(this, R.color.mtrl_textinput_default_box_stroke_color));
+            affl.setBoxStrokeColorStateList(myColorList2);
         }
         else if (affiliation.equalsIgnoreCase("Staff")){
             affiliation = "STAFF";
-            affl.setBoxStrokeColorStateList(AppCompatResources.getColorStateList(this, R.color.mtrl_textinput_default_box_stroke_color));
+            affl.setBoxStrokeColorStateList(myColorList2);
         }
         else{
             tosubmit = false;
@@ -120,7 +129,7 @@ public class SignUp  extends AppCompatActivity {
             passl.setBoxStrokeColorStateList(myColorList);
         }
         else{
-            passl.setBoxStrokeColorStateList(AppCompatResources.getColorStateList(this, R.color.mtrl_textinput_default_box_stroke_color));
+            passl.setBoxStrokeColorStateList(myColorList2);
         }
         if (profpic == null){
             tosubmit = false;
