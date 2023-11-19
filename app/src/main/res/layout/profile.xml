@@ -1330,6 +1330,7 @@
             android:layout_width="205dp"
             android:layout_height="100dp"
             app:srcCompat="@drawable/navbar1"
+            android:clickable="true"
             android:onClick="toMapScreen"/>
 
         <ImageView
@@ -1337,6 +1338,7 @@
             android:layout_width="205dp"
             android:layout_height="100dp"
             app:srcCompat="@drawable/navbarprof2"
+            android:clickable="true"
             android:onClick="toProfileScreen"/>
     </LinearLayout>
 

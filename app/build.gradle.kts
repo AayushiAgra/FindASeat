@@ -26,6 +26,10 @@ android {
             )
         }
     }
+    testOptions {
+        animationsDisabled = true
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -36,6 +40,8 @@ android {
 }
 
 dependencies {
+    androidTestImplementation("com.android.support.test.uiautomator:uiautomator-v18:2.1.1")
+    androidTestImplementation ("androidx.test.espresso:espresso-intents:3.5.1")
     implementation ("com.google.code.gson:gson:2.8.7")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.9.0")

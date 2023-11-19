@@ -165,6 +165,7 @@ public class MapsActivity extends FragmentActivity implements GoogleMap.OnMarker
 
             LatLng coords = new LatLng(latitude, longitude);
             Marker marker = googleMap.addMarker(new MarkerOptions()
+                            .title(b_name)
                     .position(coords)
                     .icon(BitmapDescriptorFactory.fromResource(R.drawable.unselected_marker)));
 
@@ -210,6 +211,7 @@ public class MapsActivity extends FragmentActivity implements GoogleMap.OnMarker
     }
 
     public boolean onMarkerClick(Marker marker) {
+        marker.setTitle("");
         String selected_name = String.valueOf(marker.getTag());
         marker.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.selected_marker));
         for (int i = 0; i < markerList.size(); i++) {

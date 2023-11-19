@@ -357,6 +357,8 @@ public class Reservation extends AppCompatActivity implements View.OnClickListen
         for (int i = 0; i < 25; i++) {
             for (int j = 0; j < 6; j++) {
                 TextView tv = new TextView(this);
+                int id = (i * 6) + j;
+                tv.setId(id);
                 tv.setHeight( dpToPixel(32) );
                 tv.setWidth( dpToPixel(55) );
                 tv.setTextSize( 16 );//dpToPixel(32) );
