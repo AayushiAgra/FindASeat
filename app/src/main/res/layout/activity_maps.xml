@@ -23,7 +23,7 @@
             android:src="@drawable/seatlogo"
             />
         <TextView
-            android:layout_width="200dp"
+            android:layout_width="70dp"
             android:layout_height="125dp"
             android:textSize="20dp"
             android:text="Map"
@@ -31,6 +31,56 @@
             android:textColor="@color/black"
             android:gravity="center_vertical"
             />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+        <LinearLayout
+            android:id="@+id/filtersLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginRight="40dp"
+            app:cornerRadius="20dp"
+            android:background="@color/white"
+            android:padding="5dp"
+            >
+
+
+            <ImageView
+                android:id="@+id/openNow"
+                android:layout_width="90dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/opennowunselected"
+                android:visibility="invisible"
+                android:onClick="clickOpenNow"
+                android:foregroundGravity="right"
+                />
+
+            <ImageView
+                android:id="@+id/favorites"
+                android:layout_marginLeft="10dp"
+                android:layout_width="90dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/favoritesunselected"
+                android:visibility="invisible"
+                android:onClick="clickFavorites"
+                />
+
+            <ImageView
+                android:id="@+id/filterToggle"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/filter"
+                android:onClick="clickToggle"
+
+                />
+        </LinearLayout>
+
     </LinearLayout>
 
     <FrameLayout
@@ -68,23 +118,39 @@
             android:elevation="10dp"
             app:cornerRadius="10dp"
             >
-            <androidx.core.widget.NestedScrollView
-                xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:layout_width="300dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="30dp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBottom="@id/map"
-                    android:fontFamily="@font/dmsans"
-                    android:text="Taper Hall"
-                    android:textColor="@color/black"
-                    android:textSize="20dp"
-                    android:id="@+id/buildingName"
-                    android:layout_marginBottom="1dp"
+                <androidx.core.widget.NestedScrollView
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="270dp"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@id/map"
+                        android:fontFamily="@font/dmsans"
+                        android:text="Taper Hall"
+                        android:textColor="@color/black"
+                        android:textSize="20dp"
+                        android:id="@+id/buildingName"
+                        android:layout_marginBottom="1dp"
+                        />
+                </androidx.core.widget.NestedScrollView>
+                <ImageView
+                    android:id="@+id/heart"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/unfilledheart"
+                    android:onClick="clickHeart"
+                    android:tag="unfilled"
+
                     />
-            </androidx.core.widget.NestedScrollView>
+            </LinearLayout>
+
 
             <androidx.core.widget.NestedScrollView
                 xmlns:android="http://schemas.android.com/apk/res/android"
